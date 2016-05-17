@@ -1,0 +1,72 @@
+User json
+    login Text
+    email Text
+    password Text
+    salt Text
+    verkey Text
+    verified Bool
+    name Text
+    country Text
+    phoneNo Text
+    createdAt UTCTime
+    aeskey ByteString
+    UniqueUser email
+    UniqueNumber phoneNo
+    UniqueUsername login
+    deriving Typeable Show
+Keyring
+    publicKey Text
+    privateKey Text
+    keyAuth Text
+    owner UserId
+    UniquePairkey owner
+    deriving Typeable Show
+
+List
+    owner UserId
+    createdAt UTCTime
+    lastUpdated UTCTime
+    UniqueList owner
+    deriving Typeable Show
+
+Contact
+    list ListId
+    contact UserId
+    createdAt UTCTime
+    UniqueContact list contact
+    deriving Typeable Show
+
+Message
+    body ByteString Maybe
+    length Int
+    owner UserId
+    conversationWith UserId Maybe
+    sender UserId
+    recipient UserId Maybe
+    createdAt UTCTime
+    isNew Bool
+    fromChat ChatId Maybe
+    media Media Maybe
+    secretKey ByteString Maybe
+    salt ByteString Maybe
+    authMessage ByteString Maybe
+    status Text
+    deriving Typeable Show
+
+Media json
+    mediaType Text
+    size Int
+    content ByteString
+    deriving Typeable Show
+
+Chat
+    owner UserId
+    recipient UserId
+    key ByteString Maybe
+    createdAt UTCTime
+    isNew Bool
+    UniqueChat owner recipient
+    deriving Show Typeable
+
+
+ -- By default this file is used in Model.hs (which is imported by Foundation.hs)

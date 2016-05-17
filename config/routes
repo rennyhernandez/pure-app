@@ -1,0 +1,4 @@
+/static StaticR Static appStatic
+/auth   AuthR   Auth   getAuth
+
+/api/health HealthR GET
